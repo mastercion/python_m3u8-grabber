@@ -1,0 +1,11 @@
+#EXTM3U
+#EXTINF:-1 tvg-name="Das Erste HD" tvg-id="DasErste.de" group-title="Vollprogramm" tvg-logo="https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/daserstehd.png",Das Erste HD
+https://mcdn.daserste.de/daserste/de/master.m3u8
+#EXTINF:-1 tvg-name="QVC" tvg-id="QVC.de" group-title="Teleshopping" tvg-logo="https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/qvc.png",QVC
+https://qvcde-live.akamaized.net/hls/live/2097104/qvc/master.m3u8
+#EXTINF:-1 tvg-name="QVC Style" tvg-id="QVCStyle.de" group-title="Teleshopping" tvg-logo="https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/qvc_style.png",QVC Style
+https://fra3-0-dash-live.zahs.tv/qvc_beauty_de/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZIMZECMCGIRBTIOJQIVATCLKCIVATMRJVGY3UEQZQII4TORJGMRZG2PLFPBYGS4TBORUW63R2GE3TAMJTGAZDMMBWEZWWC6DSMF2GKPJRGYYDAJTNNFXHEYLUMU6TQMBQEZZWSZZ5GE2V6NLGMU3DQZJZGNRGCOBTMM4GMYZRMNSDONTGGQ2TGNJXGFTGMMZYEZ3D2MA
+#EXTINF:-1 tvg-name="QVC Zwei" tvg-id="QVCZwei.de" group-title="Teleshopping" tvg-logo="https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/Logo_QVC2_DE_onAir_2020.png",QVC Zwei
+https://fra3-0-dash-live.zahs.tv/qvcplus/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZIMZECMJRIY4DGMZSHE4TQLJVIMYTANSFGJCEGNBUIJATONSEEZSHE3J5MV4HA2LSMF2GS33OHIYTOMBRGMYDENRRGUTG2YLYOJQXIZJ5GE3DAMBGNVUW44TBORST2OBQGATHG2LHHU4V6ZDGGUYGIOBSMMYTSOBRMY2DINRUGI4DENJWG5SGMNJRMFTGCOJZEZ3D2MA
+#EXTINF:-1 tvg-name="ZDF HD" tvg-id="ZDF.de" group-title="Vollprogramm" tvg-logo="https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/zdfhd.png",ZDF HD
+https://zdf-hls-15.akamaized.net/hls/live/2016498/de/veryhigh/master.m3u8

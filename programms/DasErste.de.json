@@ -1,0 +1,8 @@
+{
+    "tvg-name": "Das Erste HD",
+    "tvg-id": "DasErste.de",
+    "group-title": "Vollprogramm",
+    "tvg-logo": "https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/daserstehd.png",
+    "channel_name": "Das Erste HD",
+    "channel_url": "https://mcdn.daserste.de/daserste/de/master.m3u8"
+}

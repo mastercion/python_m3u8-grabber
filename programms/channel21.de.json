@@ -1,0 +1,8 @@
+{
+    "tvg-name": "channel21",
+    "tvg-id": "channel21.de",
+    "group-title": "Teleshopping",
+    "tvg-logo": "https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/320px-Channel21_Logo_2019.png",
+    "channel_name": "channel21",
+    "channel_url": "plugin://plugin.video.youtube/play/?video_id=0Vz3bK6K0f4"
+}

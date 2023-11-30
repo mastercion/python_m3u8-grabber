@@ -1,0 +1,8 @@
+{
+    "tvg-name": "QVC",
+    "tvg-id": "QVC.de",
+    "group-title": "Teleshopping",
+    "tvg-logo": "https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/qvc.png",
+    "channel_name": "QVC",
+    "channel_url": "https://qvcde-live.akamaized.net/hls/live/2097104/qvc/master.m3u8"
+}

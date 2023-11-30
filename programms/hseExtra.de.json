@@ -1,0 +1,8 @@
+{
+    "tvg-name": "HSE Extra",
+    "tvg-id": "hseExtra.de",
+    "group-title": "Teleshopping",
+    "tvg-logo": "https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/HSE_TV_Extra_logo.png",
+    "channel_name": "HSE Extra",
+    "channel_url": "https://hse24extra.akamaized.net/hls/live/2006596/hse24extra/master_576p25.m3u8"
+}

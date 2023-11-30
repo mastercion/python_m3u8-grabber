@@ -1,0 +1,8 @@
+{
+    "tvg-name": "HSE Trend",
+    "tvg-id": "hseTrend.de",
+    "group-title": "Teleshopping",
+    "tvg-logo": "https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/HSE_TV_Trend_Logo.png",
+    "channel_name": "HSE Trend",
+    "channel_url": "https://hse24trend.akamaized.net/hls/live/2006597/hse24trend/master_432p25.m3u8"
+}
