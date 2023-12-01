@@ -12,6 +12,8 @@ import time
 def process_urls(url_list, channel_list):
     chrome_options = Options()
     chrome_options.set_capability("goog:loggingPrefs", {"performance": "ALL", "browser": "ALL"})
+    chrome_options.add_argument("--headless")
+
 
     for channel_name, url in zip(channel_list, url_list):
         driver = webdriver.Chrome(options=chrome_options)
