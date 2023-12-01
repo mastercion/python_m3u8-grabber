@@ -45,7 +45,7 @@ def process_urls(url_list, channel_list):
                     found_url = request.get("url", "")
                     
                     if "https://fra" in found_url and '.mp4' not in found_url:
-                        print(f"Found URL for {channel_name}: {found_url}")
+                        print(f"Found URL for {channel_name}: {found_url[:10]}...")
                         update_json_file(channel_name, found_url)
                         url_found = True
                         break
@@ -70,8 +70,8 @@ def update_json_file(channel_name, url):
     else:
         print(f"JSON file for {channel_name} not found.")
 
-#channel_list = ["example.com", "QVCStyle.de", "QVCZwei.de", "hse.de", "hseTrend.de", "hseExtra.de"]
-channel_list = ["example.com", "QVCStyle.de", "QVCZwei.de"]
-url_list = ['https://example.com/', 'https://tv.de/live/qvc-style/', 'https://tv.de/live/qvc-zwei/']
+#channel_list = ["example.com", "QVCStyle.de", "QVC.de", "QVCZwei.de", "hse.de", "hseTrend.de", "hseExtra.de"]
+channel_list = ["example.com", "QVC.de", "QVCStyle.de", "QVCZwei.de"]
+url_list = ['https://example.com/', 'https://tv.de/live/qvc/', 'https://tv.de/live/qvc-style/', 'https://tv.de/live/qvc-zwei/']
 
 process_urls(url_list, channel_list)
