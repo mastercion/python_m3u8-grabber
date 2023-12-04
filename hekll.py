@@ -70,8 +70,8 @@ def update_json_file(channel_name, url):
     else:
         print(f"JSON file for {channel_name} not found.")
 
-#channel_list = ["example.com", "QVCStyle.de", "QVCZwei.de", "hse.de", "hseTrend.de", "hseExtra.de"]
-channel_list = ["example.com", "QVCStyle.de", "QVCZwei.de"]
-url_list = ['https://example.com/', 'https://tv.de/live/qvc-style/', 'https://tv.de/live/qvc-zwei/']
+#channel_list = ["example.com", "QVC.de", ""QVCStyle.de", "QVCZwei.de", "hse.de", "hseTrend.de", "hseExtra.de"]
+channel_list = ["example.com", "QVC.de","QVCStyle.de", "QVCZwei.de"]
+url_list = ['https://example.com/', "https://tv.de/live/qvc", "https://tv.de/live/qvc/", 'https://tv.de/live/qvc-style/', 'https://tv.de/live/qvc-zwei/']
 
 process_urls(url_list, channel_list)

@@ -1,0 +1,125 @@
+[1mdiff --git a/hekll.py b/hekll.py[m
+[1mindex 1b814eb..55059b7 100644[m
+[1m--- a/hekll.py[m
+[1m+++ b/hekll.py[m
+[36m@@ -70,8 +70,8 @@[m [mdef update_json_file(channel_name, url):[m
+     else:[m
+         print(f"JSON file for {channel_name} not found.")[m
+ [m
+[31m-#channel_list = ["example.com", "QVCStyle.de", "QVCZwei.de", "hse.de", "hseTrend.de", "hseExtra.de"][m
+[31m-channel_list = ["example.com", "QVCStyle.de", "QVCZwei.de"][m
+[31m-url_list = ['https://example.com/', 'https://tv.de/live/qvc-style/', 'https://tv.de/live/qvc-zwei/'][m
+[32m+[m[32m#channel_list = ["example.com", "QVC.de", ""QVCStyle.de", "QVCZwei.de", "hse.de", "hseTrend.de", "hseExtra.de"][m
+[32m+[m[32mchannel_list = ["example.com", "QVC.de","QVCStyle.de", "QVCZwei.de"][m
+[32m+[m[32murl_list = ['https://example.com/', "https://tv.de/live/qvc", "https://tv.de/live/qvc/", 'https://tv.de/live/qvc-style/', 'https://tv.de/live/qvc-zwei/'][m
+ [m
+ process_urls(url_list, channel_list)[m
+[1mdiff --git a/kodi_tv_test.m3u b/kodi_tv_test.m3u[m
+[1mdeleted file mode 100644[m
+[1mindex 54b479d..0000000[m
+[1m--- a/kodi_tv_test.m3u[m
+[1m+++ /dev/null[m
+[36m@@ -1,11 +0,0 @@[m
+[31m-#EXTM3U[m
+[31m-#EXTINF:-1 tvg-name="Das Erste HD" tvg-id="DasErste.de" group-title="Vollprogramm" tvg-logo="https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/daserstehd.png",Das Erste HD[m
+[31m-https://mcdn.daserste.de/daserste/de/master.m3u8[m
+[31m-#EXTINF:-1 tvg-name="QVC" tvg-id="QVC.de" group-title="Teleshopping" tvg-logo="https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/qvc.png",QVC[m
+[31m-https://qvcde-live.akamaized.net/hls/live/2097104/qvc/master.m3u8[m
+[31m-#EXTINF:-1 tvg-name="QVC Style" tvg-id="QVCStyle.de" group-title="Teleshopping" tvg-logo="https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/qvc_style.png",QVC Style[m
+[31m-https://fra3-0-dash-live.zahs.tv/qvc_beauty_de/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZIMZECMCGIRBTIOJQIVATCLKCIVATMRJVGY3UEQZQII4TORJGMRZG2PLFPBYGS4TBORUW63R2GE3TAMJTGAZDMMBWEZWWC6DSMF2GKPJRGYYDAJTNNFXHEYLUMU6TQMBQEZZWSZZ5GE2V6NLGMU3DQZJZGNRGCOBTMM4GMYZRMNSDONTGGQ2TGNJXGFTGMMZYEZ3D2MA[m
+[31m-#EXTINF:-1 tvg-name="QVC Zwei" tvg-id="QVCZwei.de" group-title="Teleshopping" tvg-logo="https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/Logo_QVC2_DE_onAir_2020.png",QVC Zwei[m
+[31m-https://fra3-0-dash-live.zahs.tv/qvcplus/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZIMZECMJRIY4DGMZSHE4TQLJVIMYTANSFGJCEGNBUIJATONSEEZSHE3J5MV4HA2LSMF2GS33OHIYTOMBRGMYDENRRGUTG2YLYOJQXIZJ5GE3DAMBGNVUW44TBORST2OBQGATHG2LHHU4V6ZDGGUYGIOBSMMYTSOBRMY2DINRUGI4DENJWG5SGMNJRMFTGCOJZEZ3D2MA[m
+[31m-#EXTINF:-1 tvg-name="ZDF HD" tvg-id="ZDF.de" group-title="Vollprogramm" tvg-logo="https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/zdfhd.png",ZDF HD[m
+[31m-https://zdf-hls-15.akamaized.net/hls/live/2016498/de/veryhigh/master.m3u8[m
+[1mdiff --git a/main_2h.sh b/main_2h.sh[m
+[1mindex 0c68a9f..d69eccf 100755[m
+[1m--- a/main_2h.sh[m
+[1m+++ b/main_2h.sh[m
+[36m@@ -2,19 +2,38 @@[m
+ [m
+ while true[m
+ do[m
+[31m-   echo "Running hekll.py..."[m
+[31m-   python3 hekll.py[m
+[31m-   echo "hekll.py finished."[m
+[31m-   sleep 2m[m
+[31m-[m
+[31m-   echo "Running make_format_entry.py..."[m
+[31m-   python3 make_format_entry.py[m
+[31m-   echo "make_format_entry.py finished."[m
+[31m-   sleep 2m[m
+[31m-[m
+[31m-   echo "Running main_2h.sh..."[m
+[31m-   python3 replace_file.py[m
+[31m-   echo "main_2h.sh finished."[m
+[32m+[m[32m   # Get the current hour[m
+[32m+[m[32m   current_hour=$(date +"%H")[m
+[32m+[m
+[32m+[m[32m   # Check if the current hour is between 6 AM and 9 PM[m
+[32m+[m[32m   if [[ $current_hour -ge 6 && $current_hour -lt 22 ]]; then[m
+[32m+[m
+[32m+[m[32m       echo "Running hekll.py..."[m
+[32m+[m[32m       python3 hekll.py[m
+[32m+[m[32m       echo "hekll.py finished."[m
+[32m+[m[32m       sleep 2m[m
+[32m+[m
+[32m+[m[32m       echo "Running make_format_entry.py..."[m
+[32m+[m[32m       python3 make_format_entry.py[m
+[32m+[m[32m       echo "make_format_entry.py finished."[m
+[32m+[m[32m       sleep 2m[m
+[32m+[m
+[32m+[m[32m       echo "Running replace_file.py..."[m
+[32m+[m[32m       python3 replace_file.py[m
+[32m+[m[32m       echo "replace_file.py finished."[m
+[32m+[m[32m       sleep 1m[m
+[32m+[m
+[32m+[m[32m       cd ~/kodi_tv/kodi_tv_custom/[m
+[32m+[m[32m       echo "Running commit.sh..."[m
+[32m+[m[32m       bash ~/kodi_tv/kodi_tv_custom/commit.sh[m
+[32m+[m[32m       echo "commit.sh finished."[m
+[32m+[m[32m       cd ~/kodi_tv/grabber/[m
+[32m+[m
+[32m+[m[32m   else[m
+[32m+[m[32m       echo "Outside of operating hours. Current hour: $current_hour"[m
+[32m+[m[32m   fi[m
+[32m+[m
+[32m+[m[32m   # Sleep for 2 hours before the next loop iteration[m
+    sleep 2h[m
+ done[m
+ [m
+[1mdiff --git a/programms/QVC.de.json b/programms/QVC.de.json[m
+[1mindex 9413324..9de16fa 100644[m
+[1m--- a/programms/QVC.de.json[m
+[1m+++ b/programms/QVC.de.json[m
+[36m@@ -4,5 +4,5 @@[m
+     "group-title": "Teleshopping",[m
+     "tvg-logo": "https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/qvc.png",[m
+     "channel_name": "QVC",[m
+[31m-    "channel_url": "https://qvcde-live.akamaized.net/hls/live/2097104/qvc/master.m3u8"[m
+[32m+[m[32m    "channel_url": "https://fra3-2-dash-live.zahs.tv/qvc_germany/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZINCDARBXIEYUMRCCG4YUELJUIUZDSMZXIYYTINZWIRBEENSBEZSHE3J5MV4HA2LSMF2GS33OHIYTOMBRGQ4DKOJYGMTG2YLYOJQXIZJ5GE3DAMBGNVUW44TBORST2OBQGATHG2LHHUYTGXZSG43DQY3CMQZDQNRUGNTDKMRYGI3DINTDGA2TENLGHE2DMZJWGUTHMPJQ"[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/programms/QVCStyle.de.json b/programms/QVCStyle.de.json[m
+[1mindex 062d70b..3dba6c1 100644[m
+[1m--- a/programms/QVCStyle.de.json[m
+[1m+++ b/programms/QVCStyle.de.json[m
+[36m@@ -4,5 +4,5 @@[m
+     "group-title": "Teleshopping",[m
+     "tvg-logo": "https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/qvc_style.png",[m
+     "channel_name": "QVC Style",[m
+[31m-    "channel_url": "https://fra3-0-dash-live.zahs.tv/qvc_beauty_de/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZINBTGQZVINCDQOBXGE2UCLJUGRBECMZWGQ3EGNCFGA2UGQRWEZSHE3J5MV4HA2LSMF2GS33OHIYTOMBRGQ3TCNRRGMTG2YLYOJQXIZJ5GE3DAMBGNVUW44TBORST2OBQGATHG2LHHUYTKXZQGA3DSNRRMQ3TAZDFGU4TIMDGGQYTMZBQMU3DIYRTGZQTGZRWGQTHMPJQ"[m
+[32m+[m[32m    "channel_url": "https://fra3-5-dash-live.zahs.tv/qvc_germany/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZINCDARCCIU2EINSDGNCUILJWIY2UIMRUIRBDMQSEIU3TQQRXEZSHE3J5MV4HA2LSMF2GS33OHIYTOMBRGQ4DMMBQGITG2YLYOJQXIZJ5GE3DAMBGNVUW44TBORST2OBQGATHG2LHHUYTGXZUGYYGMZBUMM2DCNZSGNRWMYZYMJRDKZRSGNTDMZBZMEZWGMZZHETHMPJQ"[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/programms/QVCZwei.de.json b/programms/QVCZwei.de.json[m
+[1mindex de67604..0a9ea97 100644[m
+[1m--- a/programms/QVCZwei.de.json[m
+[1m+++ b/programms/QVCZwei.de.json[m
+[36m@@ -4,5 +4,5 @@[m
+     "group-title": "Teleshopping",[m
+     "tvg-logo": "https://raw.githubusercontent.com/mastercion/kodi_tv_custom/main/logo/Logo_QVC2_DE_onAir_2020.png",[m
+     "channel_name": "QVC Zwei",[m
+[31m-    "channel_url": "https://fra3-1-dash-live.zahs.tv/qvcplus/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZINBTGQ2CG5BECQKEII4TGLJTGIZUCRRYIM3ECNBZGIYDIOCGEZSHE3J5MV4HA2LSMF2GS33OHIYTOMBRGQ3TCNRTG4TG2YLYOJQXIZJ5GE3DAMBGNVUW44TBORST2OBQGATHG2LHHU4V6ZJQMMYTMZTGGZRTSNLEGM4WENJTHEZDCYTBMI2WGMLEGE4DEYJUEZ3D2MA"[m
+[32m+[m[32m    "channel_url": "https://fra3-1-dash-live.zahs.tv/qvc_beauty_de/m.mpd?z32=MF2WI2LPL5RW6ZDFMNZT2YLBMMTGG43JMQ6TCNZZINCDARJQGZBUGMCDGIZEILJSGYZDEMRVIE2TARSGGVCDSNBREZSHE3J5MV4HA2LSMF2GS33OHIYTOMBRGQ4DMMBSGETG2YLYOJQXIZJ5GE3DAMBGNVUW44TBORST2OBQGATHG2LHHUYTKX3BHA3DOOBXGNRGENJQMI3DKMRSGY4DGMLCMFTDIYTFMI4TSMLGHETHMPJQ"[m
+ }[m
+\ No newline at end of file[m

@@ -6,7 +6,7 @@ do
    current_hour=$(date +"%H")
 
    # Check if the current hour is between 6 AM and 9 PM
-   if [[ $current_hour -ge 6 && $current_hour -lt 22 ]]; then
+   if [[ $current_hour -ge 6 && $current_hour -lt 21 ]]; then
 
        echo "Running hekll.py..."
        python3 hekll.py
@@ -33,7 +33,18 @@ do
        echo "Outside of operating hours. Current hour: $current_hour"
    fi
 
-   # Sleep for 2 hours before the next loop iteration
-   sleep 2h
+   # Countdown timer for 3 hours
+   remaining_seconds=$((3 * 3600)) # 3 hours in seconds
+
+   while [ $remaining_seconds -gt 0 ]; do
+       hours=$(($remaining_seconds / 3600))
+       minutes=$((($remaining_seconds % 3600) / 60))
+       seconds=$(($remaining_seconds % 60))
+       echo -ne "Time Remaining until resume: $hours:$minutes:$seconds\r"
+       sleep 1
+       ((remaining_seconds--))
+   done
+   echo -ne "\n"
+
 done
 
